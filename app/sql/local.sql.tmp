@@ -1,0 +1,1707 @@
+-- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
+--
+-- Host: ::1    Database: local
+-- ------------------------------------------------------
+-- Server version	8.0.16
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+ SET NAMES utf8mb4 ;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `wp_actionscheduler_actions`
+--
+
+DROP TABLE IF EXISTS `wp_actionscheduler_actions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_actionscheduler_actions` (
+  `action_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `hook` varchar(191) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `status` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `scheduled_date_gmt` datetime DEFAULT '0000-00-00 00:00:00',
+  `scheduled_date_local` datetime DEFAULT '0000-00-00 00:00:00',
+  `priority` tinyint(3) unsigned NOT NULL DEFAULT '10',
+  `args` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `schedule` longtext COLLATE utf8mb4_unicode_520_ci,
+  `group_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `attempts` int(11) NOT NULL DEFAULT '0',
+  `last_attempt_gmt` datetime DEFAULT '0000-00-00 00:00:00',
+  `last_attempt_local` datetime DEFAULT '0000-00-00 00:00:00',
+  `claim_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `extended_args` varchar(8000) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  PRIMARY KEY (`action_id`),
+  KEY `hook_status_scheduled_date_gmt` (`hook`(163),`status`,`scheduled_date_gmt`),
+  KEY `status_scheduled_date_gmt` (`status`,`scheduled_date_gmt`),
+  KEY `scheduled_date_gmt` (`scheduled_date_gmt`),
+  KEY `args` (`args`),
+  KEY `group_id` (`group_id`),
+  KEY `last_attempt_gmt` (`last_attempt_gmt`),
+  KEY `claim_id_status_scheduled_date_gmt` (`claim_id`,`status`,`scheduled_date_gmt`)
+) ENGINE=InnoDB AUTO_INCREMENT=195 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_actionscheduler_actions`
+--
+
+LOCK TABLES `wp_actionscheduler_actions` WRITE;
+/*!40000 ALTER TABLE `wp_actionscheduler_actions` DISABLE KEYS */;
+INSERT INTO `wp_actionscheduler_actions` VALUES (131,'woocommerce_run_on_woocommerce_admin_updated','complete','2024-03-21 21:23:26','2024-03-21 22:23:26',10,'[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711056206;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711056206;}',1,1,'2024-03-21 21:23:38','2024-03-21 22:23:38',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (132,'action_scheduler/migration_hook','complete','2024-03-21 21:24:30','2024-03-21 22:24:30',10,'[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711056270;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711056270;}',2,1,'2024-03-21 21:24:48','2024-03-21 22:24:48',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (133,'woocommerce_cleanup_draft_orders','complete','2024-03-21 21:23:32','2024-03-21 22:23:32',10,'[]','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1711056212;s:18:\"\0*\0first_timestamp\";i:1711056212;s:13:\"\0*\0recurrence\";i:86400;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1711056212;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:86400;}',3,1,'2024-03-21 21:23:38','2024-03-21 22:23:38',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (134,'woocommerce_cleanup_draft_orders','complete','2024-03-22 21:23:38','2024-03-22 22:23:38',10,'[]','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1711142618;s:18:\"\0*\0first_timestamp\";i:1711056212;s:13:\"\0*\0recurrence\";i:86400;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1711142618;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:86400;}',3,1,'2024-03-23 16:25:25','2024-03-23 17:25:25',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (135,'woocommerce_plugins_install_and_activate_async_callback','complete','2024-03-21 21:25:56','2024-03-21 22:25:56',10,'[[\"google-listings-and-ads\",\"mailchimp-for-woocommerce\",\"woocommerce-services\"],\"65fca5e41d55e\"]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711056356;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711056356;}',3,1,'2024-03-21 21:26:27','2024-03-21 22:26:27',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (136,'wc_gla_cron_daily_notes','complete','2024-03-21 21:25:57','2024-03-21 22:25:57',10,'[]','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1711056357;s:18:\"\0*\0first_timestamp\";i:1711056357;s:13:\"\0*\0recurrence\";i:86400;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1711056357;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:86400;}',4,1,'2024-03-21 21:27:21','2024-03-21 22:27:21',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (137,'MailChimp_WooCommerce_Single_Product','complete','2024-03-21 21:26:58','2024-03-21 22:26:58',10,'{\"obj_id\":137}','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711056418;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711056418;}',5,1,'2024-03-21 21:27:21','2024-03-21 22:27:21',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (138,'woocommerce_run_product_attribute_lookup_update_callback','complete','2024-03-21 21:26:55','2024-03-21 22:26:55',10,'[137,1]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711056415;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711056415;}',6,1,'2024-03-21 21:27:21','2024-03-21 22:27:21',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (139,'wc_gla_cron_daily_notes','complete','2024-03-22 21:27:21','2024-03-22 22:27:21',10,'[]','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1711142841;s:18:\"\0*\0first_timestamp\";i:1711056357;s:13:\"\0*\0recurrence\";i:86400;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1711142841;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:86400;}',4,1,'2024-03-23 16:25:26','2024-03-23 17:25:26',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (140,'wpforms_process_forms_locator_scan','complete','2024-03-21 21:31:18','2024-03-21 22:31:18',10,'{\"tasks_meta_id\":1}','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1711056678;s:18:\"\0*\0first_timestamp\";i:1711056678;s:13:\"\0*\0recurrence\";i:86400;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1711056678;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:86400;}',7,1,'2024-03-21 21:32:20','2024-03-21 22:32:20',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (141,'wpforms_email_summaries_fetch_info_blocks','complete','2024-03-18 20:53:02','2024-03-18 21:53:02',10,'{\"tasks_meta_id\":null}','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1710795182;s:18:\"\0*\0first_timestamp\";i:1710795182;s:13:\"\0*\0recurrence\";i:604800;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1710795182;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:604800;}',7,1,'2024-03-21 21:32:20','2024-03-21 22:32:20',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (142,'wpforms_admin_addons_cache_update','pending','2024-03-28 21:31:20','2024-03-28 22:31:20',10,'{\"tasks_meta_id\":2}','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1711661480;s:18:\"\0*\0first_timestamp\";i:1711661480;s:13:\"\0*\0recurrence\";i:604800;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1711661480;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:604800;}',7,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (143,'wpforms_admin_notifications_update','complete','2024-03-21 21:31:20','2024-03-21 21:31:20',10,'{\"tasks_meta_id\":3}','O:28:\"ActionScheduler_NullSchedule\":0:{}',7,1,'2024-03-21 21:32:20','2024-03-21 22:32:20',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (144,'wpforms_builder_help_cache_update','pending','2024-03-28 21:31:30','2024-03-28 22:31:30',10,'{\"tasks_meta_id\":4}','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1711661490;s:18:\"\0*\0first_timestamp\";i:1711661490;s:13:\"\0*\0recurrence\";i:604800;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1711661490;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:604800;}',7,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (145,'wpforms_admin_builder_templates_cache_update','pending','2024-03-28 21:31:30','2024-03-28 22:31:30',10,'{\"tasks_meta_id\":5}','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1711661490;s:18:\"\0*\0first_timestamp\";i:1711661490;s:13:\"\0*\0recurrence\";i:604800;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1711661490;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:604800;}',7,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (146,'wpforms_email_summaries_fetch_info_blocks','pending','2024-03-28 21:32:20','2024-03-28 22:32:20',10,'{\"tasks_meta_id\":null}','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1711661540;s:18:\"\0*\0first_timestamp\";i:1710795182;s:13:\"\0*\0recurrence\";i:604800;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1711661540;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:604800;}',7,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (147,'wpforms_process_forms_locator_scan','complete','2024-03-22 21:32:20','2024-03-22 22:32:20',10,'{\"tasks_meta_id\":1}','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1711143140;s:18:\"\0*\0first_timestamp\";i:1711056678;s:13:\"\0*\0recurrence\";i:86400;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1711143140;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:86400;}',7,1,'2024-03-23 16:25:26','2024-03-23 17:25:26',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (148,'wpforms_admin_notifications_update','complete','2024-03-23 16:25:24','2024-03-23 16:25:24',10,'{\"tasks_meta_id\":6}','O:28:\"ActionScheduler_NullSchedule\":0:{}',7,1,'2024-03-23 16:25:33','2024-03-23 17:25:33',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (149,'woocommerce_cleanup_draft_orders','complete','2024-03-24 16:25:25','2024-03-24 17:25:25',10,'[]','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1711297525;s:18:\"\0*\0first_timestamp\";i:1711056212;s:13:\"\0*\0recurrence\";i:86400;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1711297525;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:86400;}',3,1,'2024-03-24 16:26:23','2024-03-24 17:26:23',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (150,'wc_gla_cron_daily_notes','complete','2024-03-24 16:25:26','2024-03-24 17:25:26',10,'[]','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1711297526;s:18:\"\0*\0first_timestamp\";i:1711056357;s:13:\"\0*\0recurrence\";i:86400;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1711297526;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:86400;}',4,1,'2024-03-24 16:26:23','2024-03-24 17:26:23',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (151,'wpforms_process_forms_locator_scan','complete','2024-03-24 16:25:26','2024-03-24 17:25:26',10,'{\"tasks_meta_id\":1}','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1711297526;s:18:\"\0*\0first_timestamp\";i:1711056678;s:13:\"\0*\0recurrence\";i:86400;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1711297526;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:86400;}',7,1,'2024-03-24 16:26:24','2024-03-24 17:26:24',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (152,'action_scheduler/migration_hook','complete','2024-03-23 16:43:10','2024-03-23 17:43:10',10,'[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711212190;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711212190;}',2,1,'2024-03-23 16:43:16','2024-03-23 17:43:16',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (153,'action_scheduler/migration_hook','complete','2024-03-23 17:02:53','2024-03-23 18:02:53',10,'[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711213373;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711213373;}',2,1,'2024-03-23 17:03:19','2024-03-23 18:03:19',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (154,'MailChimp_WooCommerce_Single_Product','complete','2024-03-24 13:56:22','2024-03-24 14:56:22',10,'{\"obj_id\":296}','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711288582;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711288582;}',5,1,'2024-03-24 13:56:41','2024-03-24 14:56:41',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (155,'woocommerce_run_product_attribute_lookup_update_callback','complete','2024-03-24 13:56:18','2024-03-24 14:56:18',10,'[296,1]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711288578;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711288578;}',6,1,'2024-03-24 13:56:41','2024-03-24 14:56:41',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (157,'MailChimp_WooCommerce_Single_Product','complete','2024-03-24 14:13:58','2024-03-24 15:13:58',10,'{\"obj_id\":296}','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711289638;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711289638;}',5,1,'2024-03-24 14:14:17','2024-03-24 15:14:17',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (158,'MailChimp_WooCommerce_Single_Product','complete','2024-03-24 14:14:14','2024-03-24 15:14:14',10,'{\"obj_id\":300}','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711289654;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711289654;}',5,1,'2024-03-24 14:14:17','2024-03-24 15:14:17',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (159,'woocommerce_run_product_attribute_lookup_update_callback','complete','2024-03-24 14:14:10','2024-03-24 15:14:10',10,'[300,1]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711289650;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711289650;}',6,1,'2024-03-24 14:14:17','2024-03-24 15:14:17',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (161,'MailChimp_WooCommerce_Single_Product','complete','2024-03-24 14:15:38','2024-03-24 15:15:38',10,'{\"obj_id\":300}','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711289738;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711289738;}',5,1,'2024-03-24 14:15:53','2024-03-24 15:15:53',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (162,'MailChimp_WooCommerce_Single_Product','complete','2024-03-24 14:15:50','2024-03-24 15:15:50',10,'{\"obj_id\":301}','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711289750;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711289750;}',5,1,'2024-03-24 14:15:53','2024-03-24 15:15:53',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (163,'woocommerce_run_product_attribute_lookup_update_callback','complete','2024-03-24 14:15:46','2024-03-24 15:15:46',10,'[301,1]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711289746;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711289746;}',6,1,'2024-03-24 14:15:53','2024-03-24 15:15:53',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (165,'MailChimp_WooCommerce_Single_Product','complete','2024-03-24 14:17:03','2024-03-24 15:17:03',10,'{\"obj_id\":301}','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711289823;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711289823;}',5,1,'2024-03-24 14:17:14','2024-03-24 15:17:14',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (166,'MailChimp_WooCommerce_Single_Product','complete','2024-03-24 15:35:56','2024-03-24 16:35:56',10,'{\"obj_id\":350}','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711294556;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711294556;}',5,1,'2024-03-24 15:36:16','2024-03-24 16:36:16',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (167,'woocommerce_run_product_attribute_lookup_update_callback','complete','2024-03-24 15:35:52','2024-03-24 16:35:52',10,'[350,1]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711294552;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711294552;}',6,1,'2024-03-24 15:36:16','2024-03-24 16:36:16',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (168,'woocommerce_cleanup_draft_orders','pending','2024-03-25 16:26:23','2024-03-25 17:26:23',10,'[]','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1711383983;s:18:\"\0*\0first_timestamp\";i:1711056212;s:13:\"\0*\0recurrence\";i:86400;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1711383983;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:86400;}',3,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (170,'wpforms_process_forms_locator_scan','pending','2024-03-25 16:26:24','2024-03-25 17:26:24',10,'{\"tasks_meta_id\":1}','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1711383984;s:18:\"\0*\0first_timestamp\";i:1711056678;s:13:\"\0*\0recurrence\";i:86400;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1711383984;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:86400;}',7,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (171,'wpforms_admin_notifications_update','complete','2024-03-24 16:26:26','2024-03-24 16:26:26',10,'{\"tasks_meta_id\":7}','O:28:\"ActionScheduler_NullSchedule\":0:{}',7,1,'2024-03-24 16:26:36','2024-03-24 17:26:36',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (172,'MailChimp_WooCommerce_Single_Product','complete','2024-03-24 16:42:24','2024-03-24 17:42:24',10,'{\"obj_id\":296}','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711298544;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711298544;}',5,1,'2024-03-24 16:42:25','2024-03-24 17:42:25',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (173,'woocommerce_run_product_attribute_lookup_update_callback','complete','2024-03-24 17:07:39','2024-03-24 18:07:39',10,'[300,3]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711300059;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711300059;}',6,1,'2024-03-24 17:07:50','2024-03-24 18:07:50',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (174,'woocommerce_run_product_attribute_lookup_update_callback','complete','2024-03-24 17:07:50','2024-03-24 18:07:50',10,'[301,3]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711300070;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711300070;}',6,1,'2024-03-24 17:07:51','2024-03-24 18:07:51',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (175,'action_scheduler/migration_hook','complete','2024-03-24 17:49:14','2024-03-24 18:49:14',10,'[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711302554;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711302554;}',2,1,'2024-03-24 17:49:55','2024-03-24 18:49:55',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (176,'woocommerce_run_product_attribute_lookup_regeneration_callback','complete','2024-03-24 17:48:29','2024-03-24 18:48:29',10,'[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711302509;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711302509;}',6,1,'2024-03-24 17:48:47','2024-03-24 18:48:47',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (177,'action_scheduler/migration_hook','complete','2024-03-24 17:51:06','2024-03-24 18:51:06',10,'[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711302666;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711302666;}',2,1,'2024-03-24 17:51:15','2024-03-24 18:51:15',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (178,'action_scheduler/migration_hook','complete','2024-03-24 17:52:20','2024-03-24 18:52:20',10,'[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711302740;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711302740;}',2,1,'2024-03-24 17:53:19','2024-03-24 18:53:19',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (179,'action_scheduler/migration_hook','complete','2024-03-24 18:00:28','2024-03-24 19:00:28',10,'[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711303228;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711303228;}',2,1,'2024-03-24 18:01:54','2024-03-24 19:01:54',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (180,'woocommerce_admin/stored_state_setup_for_products/async/run_remote_notifications','failed','2024-03-24 18:18:44','2024-03-24 18:18:44',10,'[]','O:28:\"ActionScheduler_NullSchedule\":0:{}',3,1,'2024-03-24 18:19:11','2024-03-24 19:19:11',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (181,'woocommerce_run_product_attribute_lookup_update_callback','complete','2024-03-24 18:18:45','2024-03-24 19:18:45',10,'[300,1]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711304325;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711304325;}',6,1,'2024-03-24 18:19:11','2024-03-24 19:19:11',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (182,'woocommerce_run_product_attribute_lookup_update_callback','complete','2024-03-24 18:21:30','2024-03-24 19:21:30',10,'[301,1]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711304490;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711304490;}',6,1,'2024-03-24 18:22:16','2024-03-24 19:22:16',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (183,'action_scheduler/migration_hook','complete','2024-03-24 18:55:17','2024-03-24 19:55:17',10,'[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711306517;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711306517;}',2,1,'2024-03-24 18:55:35','2024-03-24 19:55:35',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (184,'action_scheduler/migration_hook','complete','2024-03-25 09:41:34','2024-03-25 10:41:34',10,'[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711359694;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711359694;}',2,1,'2024-03-25 09:41:48','2024-03-25 10:41:48',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (185,'woocommerce_run_product_attribute_lookup_regeneration_callback','complete','2024-03-25 09:52:58','2024-03-25 10:52:58',10,'[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711360378;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711360378;}',6,1,'2024-03-25 09:53:18','2024-03-25 10:53:18',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (186,'woocommerce_run_product_attribute_lookup_update_callback','complete','2024-03-25 10:04:37','2024-03-25 11:04:37',10,'[296,3]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711361077;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711361077;}',6,1,'2024-03-25 10:04:47','2024-03-25 11:04:47',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (187,'woocommerce_run_product_attribute_lookup_update_callback','complete','2024-03-25 10:04:47','2024-03-25 11:04:47',10,'[300,3]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711361087;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711361087;}',6,1,'2024-03-25 10:04:47','2024-03-25 11:04:47',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (188,'woocommerce_run_product_attribute_lookup_update_callback','complete','2024-03-25 10:04:49','2024-03-25 11:04:49',10,'[301,3]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711361089;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711361089;}',6,1,'2024-03-25 10:04:54','2024-03-25 11:04:54',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (189,'woocommerce_run_product_attribute_lookup_update_callback','complete','2024-03-25 10:05:15','2024-03-25 11:05:15',10,'[296,3]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711361115;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711361115;}',6,1,'2024-03-25 10:06:10','2024-03-25 11:06:10',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (190,'woocommerce_run_product_attribute_lookup_update_callback','complete','2024-03-25 10:05:16','2024-03-25 11:05:16',10,'[300,3]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711361116;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711361116;}',6,1,'2024-03-25 10:06:10','2024-03-25 11:06:10',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (191,'woocommerce_run_product_attribute_lookup_update_callback','complete','2024-03-25 10:05:18','2024-03-25 11:05:18',10,'[301,3]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711361118;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711361118;}',6,1,'2024-03-25 10:06:10','2024-03-25 11:06:10',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (192,'woocommerce_run_product_attribute_lookup_update_callback','complete','2024-03-25 10:31:56','2024-03-25 11:31:56',10,'[491,1]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711362716;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711362716;}',6,1,'2024-03-25 10:32:45','2024-03-25 11:32:45',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (193,'woocommerce_run_product_attribute_lookup_update_callback','complete','2024-03-25 11:20:03','2024-03-25 12:20:03',10,'[506,1]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711365603;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711365603;}',6,1,'2024-03-25 11:20:15','2024-03-25 12:20:15',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (194,'woocommerce_run_product_attribute_lookup_update_callback','complete','2024-03-25 11:36:40','2024-03-25 12:36:40',10,'[512,1]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1711366600;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1711366600;}',6,1,'2024-03-25 11:37:30','2024-03-25 12:37:30',0,NULL);
+/*!40000 ALTER TABLE `wp_actionscheduler_actions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_actionscheduler_claims`
+--
+
+DROP TABLE IF EXISTS `wp_actionscheduler_claims`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_actionscheduler_claims` (
+  `claim_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `date_created_gmt` datetime DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`claim_id`),
+  KEY `date_created_gmt` (`date_created_gmt`)
+) ENGINE=InnoDB AUTO_INCREMENT=1039 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_actionscheduler_claims`
+--
+
+LOCK TABLES `wp_actionscheduler_claims` WRITE;
+/*!40000 ALTER TABLE `wp_actionscheduler_claims` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wp_actionscheduler_claims` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_actionscheduler_groups`
+--
+
+DROP TABLE IF EXISTS `wp_actionscheduler_groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_actionscheduler_groups` (
+  `group_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  PRIMARY KEY (`group_id`),
+  KEY `slug` (`slug`(191))
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_actionscheduler_groups`
+--
+
+LOCK TABLES `wp_actionscheduler_groups` WRITE;
+/*!40000 ALTER TABLE `wp_actionscheduler_groups` DISABLE KEYS */;
+INSERT INTO `wp_actionscheduler_groups` VALUES (1,'woocommerce-remote-inbox-engine');
+INSERT INTO `wp_actionscheduler_groups` VALUES (2,'action-scheduler-migration');
+INSERT INTO `wp_actionscheduler_groups` VALUES (3,'');
+INSERT INTO `wp_actionscheduler_groups` VALUES (4,'gla');
+INSERT INTO `wp_actionscheduler_groups` VALUES (5,'mc-woocommerce');
+INSERT INTO `wp_actionscheduler_groups` VALUES (6,'woocommerce-db-updates');
+INSERT INTO `wp_actionscheduler_groups` VALUES (7,'wpforms');
+/*!40000 ALTER TABLE `wp_actionscheduler_groups` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_actionscheduler_logs`
+--
+
+DROP TABLE IF EXISTS `wp_actionscheduler_logs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_actionscheduler_logs` (
+  `log_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `action_id` bigint(20) unsigned NOT NULL,
+  `message` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `log_date_gmt` datetime DEFAULT '0000-00-00 00:00:00',
+  `log_date_local` datetime DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`log_id`),
+  KEY `action_id` (`action_id`),
+  KEY `log_date_gmt` (`log_date_gmt`)
+) ENGINE=InnoDB AUTO_INCREMENT=177 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_actionscheduler_logs`
+--
+
+LOCK TABLES `wp_actionscheduler_logs` WRITE;
+/*!40000 ALTER TABLE `wp_actionscheduler_logs` DISABLE KEYS */;
+INSERT INTO `wp_actionscheduler_logs` VALUES (1,131,'action created','2024-03-21 21:23:26','2024-03-21 22:23:26');
+INSERT INTO `wp_actionscheduler_logs` VALUES (2,132,'action created','2024-03-21 21:23:30','2024-03-21 22:23:30');
+INSERT INTO `wp_actionscheduler_logs` VALUES (3,133,'action created','2024-03-21 21:23:32','2024-03-21 22:23:32');
+INSERT INTO `wp_actionscheduler_logs` VALUES (4,131,'action started via WP Cron','2024-03-21 21:23:36','2024-03-21 22:23:36');
+INSERT INTO `wp_actionscheduler_logs` VALUES (5,131,'action complete via WP Cron','2024-03-21 21:23:38','2024-03-21 22:23:38');
+INSERT INTO `wp_actionscheduler_logs` VALUES (6,133,'action started via WP Cron','2024-03-21 21:23:38','2024-03-21 22:23:38');
+INSERT INTO `wp_actionscheduler_logs` VALUES (7,133,'action complete via WP Cron','2024-03-21 21:23:38','2024-03-21 22:23:38');
+INSERT INTO `wp_actionscheduler_logs` VALUES (8,134,'action created','2024-03-21 21:23:38','2024-03-21 22:23:38');
+INSERT INTO `wp_actionscheduler_logs` VALUES (9,132,'action started via Async Request','2024-03-21 21:24:48','2024-03-21 22:24:48');
+INSERT INTO `wp_actionscheduler_logs` VALUES (10,132,'action complete via Async Request','2024-03-21 21:24:48','2024-03-21 22:24:48');
+INSERT INTO `wp_actionscheduler_logs` VALUES (11,135,'action created','2024-03-21 21:25:56','2024-03-21 22:25:56');
+INSERT INTO `wp_actionscheduler_logs` VALUES (12,136,'action created','2024-03-21 21:25:57','2024-03-21 22:25:57');
+INSERT INTO `wp_actionscheduler_logs` VALUES (13,135,'action started via WP Cron','2024-03-21 21:26:15','2024-03-21 22:26:15');
+INSERT INTO `wp_actionscheduler_logs` VALUES (14,135,'action complete via WP Cron','2024-03-21 21:26:27','2024-03-21 22:26:27');
+INSERT INTO `wp_actionscheduler_logs` VALUES (15,137,'action created','2024-03-21 21:26:53','2024-03-21 22:26:53');
+INSERT INTO `wp_actionscheduler_logs` VALUES (16,138,'action created','2024-03-21 21:26:54','2024-03-21 22:26:54');
+INSERT INTO `wp_actionscheduler_logs` VALUES (17,136,'action started via WP Cron','2024-03-21 21:27:21','2024-03-21 22:27:21');
+INSERT INTO `wp_actionscheduler_logs` VALUES (18,136,'action complete via WP Cron','2024-03-21 21:27:21','2024-03-21 22:27:21');
+INSERT INTO `wp_actionscheduler_logs` VALUES (19,139,'action created','2024-03-21 21:27:21','2024-03-21 22:27:21');
+INSERT INTO `wp_actionscheduler_logs` VALUES (20,138,'action started via WP Cron','2024-03-21 21:27:21','2024-03-21 22:27:21');
+INSERT INTO `wp_actionscheduler_logs` VALUES (21,138,'action complete via WP Cron','2024-03-21 21:27:21','2024-03-21 22:27:21');
+INSERT INTO `wp_actionscheduler_logs` VALUES (22,137,'action started via WP Cron','2024-03-21 21:27:21','2024-03-21 22:27:21');
+INSERT INTO `wp_actionscheduler_logs` VALUES (23,137,'action complete via WP Cron','2024-03-21 21:27:21','2024-03-21 22:27:21');
+INSERT INTO `wp_actionscheduler_logs` VALUES (24,140,'action created','2024-03-21 21:31:18','2024-03-21 22:31:18');
+INSERT INTO `wp_actionscheduler_logs` VALUES (25,141,'action created','2024-03-21 21:31:18','2024-03-21 22:31:18');
+INSERT INTO `wp_actionscheduler_logs` VALUES (26,142,'action created','2024-03-21 21:31:20','2024-03-21 22:31:20');
+INSERT INTO `wp_actionscheduler_logs` VALUES (27,143,'action created','2024-03-21 21:31:20','2024-03-21 22:31:20');
+INSERT INTO `wp_actionscheduler_logs` VALUES (28,144,'action created','2024-03-21 21:31:30','2024-03-21 22:31:30');
+INSERT INTO `wp_actionscheduler_logs` VALUES (29,145,'action created','2024-03-21 21:31:30','2024-03-21 22:31:30');
+INSERT INTO `wp_actionscheduler_logs` VALUES (30,141,'action started via WP Cron','2024-03-21 21:32:20','2024-03-21 22:32:20');
+INSERT INTO `wp_actionscheduler_logs` VALUES (31,141,'action complete via WP Cron','2024-03-21 21:32:20','2024-03-21 22:32:20');
+INSERT INTO `wp_actionscheduler_logs` VALUES (32,146,'action created','2024-03-21 21:32:20','2024-03-21 22:32:20');
+INSERT INTO `wp_actionscheduler_logs` VALUES (33,140,'action started via WP Cron','2024-03-21 21:32:20','2024-03-21 22:32:20');
+INSERT INTO `wp_actionscheduler_logs` VALUES (34,140,'action complete via WP Cron','2024-03-21 21:32:20','2024-03-21 22:32:20');
+INSERT INTO `wp_actionscheduler_logs` VALUES (35,147,'action created','2024-03-21 21:32:20','2024-03-21 22:32:20');
+INSERT INTO `wp_actionscheduler_logs` VALUES (36,143,'action started via WP Cron','2024-03-21 21:32:20','2024-03-21 22:32:20');
+INSERT INTO `wp_actionscheduler_logs` VALUES (37,143,'action complete via WP Cron','2024-03-21 21:32:20','2024-03-21 22:32:20');
+INSERT INTO `wp_actionscheduler_logs` VALUES (38,148,'action created','2024-03-23 16:25:24','2024-03-23 17:25:24');
+INSERT INTO `wp_actionscheduler_logs` VALUES (39,134,'action started via WP Cron','2024-03-23 16:25:25','2024-03-23 17:25:25');
+INSERT INTO `wp_actionscheduler_logs` VALUES (40,134,'action complete via WP Cron','2024-03-23 16:25:25','2024-03-23 17:25:25');
+INSERT INTO `wp_actionscheduler_logs` VALUES (41,149,'action created','2024-03-23 16:25:26','2024-03-23 17:25:26');
+INSERT INTO `wp_actionscheduler_logs` VALUES (42,139,'action started via WP Cron','2024-03-23 16:25:26','2024-03-23 17:25:26');
+INSERT INTO `wp_actionscheduler_logs` VALUES (43,139,'action complete via WP Cron','2024-03-23 16:25:26','2024-03-23 17:25:26');
+INSERT INTO `wp_actionscheduler_logs` VALUES (44,150,'action created','2024-03-23 16:25:26','2024-03-23 17:25:26');
+INSERT INTO `wp_actionscheduler_logs` VALUES (45,147,'action started via WP Cron','2024-03-23 16:25:26','2024-03-23 17:25:26');
+INSERT INTO `wp_actionscheduler_logs` VALUES (46,147,'action complete via WP Cron','2024-03-23 16:25:26','2024-03-23 17:25:26');
+INSERT INTO `wp_actionscheduler_logs` VALUES (47,151,'action created','2024-03-23 16:25:26','2024-03-23 17:25:26');
+INSERT INTO `wp_actionscheduler_logs` VALUES (48,148,'action started via WP Cron','2024-03-23 16:25:26','2024-03-23 17:25:26');
+INSERT INTO `wp_actionscheduler_logs` VALUES (49,148,'action complete via WP Cron','2024-03-23 16:25:27','2024-03-23 17:25:27');
+INSERT INTO `wp_actionscheduler_logs` VALUES (50,152,'action created','2024-03-23 16:42:10','2024-03-23 17:42:10');
+INSERT INTO `wp_actionscheduler_logs` VALUES (51,152,'action started via WP Cron','2024-03-23 16:43:16','2024-03-23 17:43:16');
+INSERT INTO `wp_actionscheduler_logs` VALUES (52,152,'action complete via WP Cron','2024-03-23 16:43:16','2024-03-23 17:43:16');
+INSERT INTO `wp_actionscheduler_logs` VALUES (53,153,'action created','2024-03-23 17:01:53','2024-03-23 18:01:53');
+INSERT INTO `wp_actionscheduler_logs` VALUES (54,153,'action started via WP Cron','2024-03-23 17:03:19','2024-03-23 18:03:19');
+INSERT INTO `wp_actionscheduler_logs` VALUES (55,153,'action complete via WP Cron','2024-03-23 17:03:19','2024-03-23 18:03:19');
+INSERT INTO `wp_actionscheduler_logs` VALUES (56,154,'action created','2024-03-24 13:56:17','2024-03-24 14:56:17');
+INSERT INTO `wp_actionscheduler_logs` VALUES (57,155,'action created','2024-03-24 13:56:17','2024-03-24 14:56:17');
+INSERT INTO `wp_actionscheduler_logs` VALUES (58,155,'action started via Async Request','2024-03-24 13:56:41','2024-03-24 14:56:41');
+INSERT INTO `wp_actionscheduler_logs` VALUES (59,155,'action complete via Async Request','2024-03-24 13:56:41','2024-03-24 14:56:41');
+INSERT INTO `wp_actionscheduler_logs` VALUES (60,154,'action started via Async Request','2024-03-24 13:56:41','2024-03-24 14:56:41');
+INSERT INTO `wp_actionscheduler_logs` VALUES (61,154,'action complete via Async Request','2024-03-24 13:56:41','2024-03-24 14:56:41');
+INSERT INTO `wp_actionscheduler_logs` VALUES (64,157,'action created','2024-03-24 14:13:53','2024-03-24 15:13:53');
+INSERT INTO `wp_actionscheduler_logs` VALUES (65,158,'action created','2024-03-24 14:14:09','2024-03-24 15:14:09');
+INSERT INTO `wp_actionscheduler_logs` VALUES (66,159,'action created','2024-03-24 14:14:09','2024-03-24 15:14:09');
+INSERT INTO `wp_actionscheduler_logs` VALUES (67,157,'action started via WP Cron','2024-03-24 14:14:17','2024-03-24 15:14:17');
+INSERT INTO `wp_actionscheduler_logs` VALUES (68,157,'action complete via WP Cron','2024-03-24 14:14:17','2024-03-24 15:14:17');
+INSERT INTO `wp_actionscheduler_logs` VALUES (69,159,'action started via WP Cron','2024-03-24 14:14:17','2024-03-24 15:14:17');
+INSERT INTO `wp_actionscheduler_logs` VALUES (70,159,'action complete via WP Cron','2024-03-24 14:14:17','2024-03-24 15:14:17');
+INSERT INTO `wp_actionscheduler_logs` VALUES (71,158,'action started via WP Cron','2024-03-24 14:14:17','2024-03-24 15:14:17');
+INSERT INTO `wp_actionscheduler_logs` VALUES (72,158,'action complete via WP Cron','2024-03-24 14:14:17','2024-03-24 15:14:17');
+INSERT INTO `wp_actionscheduler_logs` VALUES (75,161,'action created','2024-03-24 14:15:33','2024-03-24 15:15:33');
+INSERT INTO `wp_actionscheduler_logs` VALUES (76,162,'action created','2024-03-24 14:15:45','2024-03-24 15:15:45');
+INSERT INTO `wp_actionscheduler_logs` VALUES (77,163,'action created','2024-03-24 14:15:45','2024-03-24 15:15:45');
+INSERT INTO `wp_actionscheduler_logs` VALUES (78,161,'action started via Async Request','2024-03-24 14:15:53','2024-03-24 15:15:53');
+INSERT INTO `wp_actionscheduler_logs` VALUES (79,161,'action complete via Async Request','2024-03-24 14:15:53','2024-03-24 15:15:53');
+INSERT INTO `wp_actionscheduler_logs` VALUES (80,163,'action started via Async Request','2024-03-24 14:15:53','2024-03-24 15:15:53');
+INSERT INTO `wp_actionscheduler_logs` VALUES (81,163,'action complete via Async Request','2024-03-24 14:15:53','2024-03-24 15:15:53');
+INSERT INTO `wp_actionscheduler_logs` VALUES (82,162,'action started via Async Request','2024-03-24 14:15:53','2024-03-24 15:15:53');
+INSERT INTO `wp_actionscheduler_logs` VALUES (83,162,'action complete via Async Request','2024-03-24 14:15:53','2024-03-24 15:15:53');
+INSERT INTO `wp_actionscheduler_logs` VALUES (86,165,'action created','2024-03-24 14:16:58','2024-03-24 15:16:58');
+INSERT INTO `wp_actionscheduler_logs` VALUES (87,165,'action started via Async Request','2024-03-24 14:17:14','2024-03-24 15:17:14');
+INSERT INTO `wp_actionscheduler_logs` VALUES (88,165,'action complete via Async Request','2024-03-24 14:17:14','2024-03-24 15:17:14');
+INSERT INTO `wp_actionscheduler_logs` VALUES (89,166,'action created','2024-03-24 15:35:51','2024-03-24 16:35:51');
+INSERT INTO `wp_actionscheduler_logs` VALUES (90,167,'action created','2024-03-24 15:35:51','2024-03-24 16:35:51');
+INSERT INTO `wp_actionscheduler_logs` VALUES (91,167,'action started via WP Cron','2024-03-24 15:36:16','2024-03-24 16:36:16');
+INSERT INTO `wp_actionscheduler_logs` VALUES (92,167,'action complete via WP Cron','2024-03-24 15:36:16','2024-03-24 16:36:16');
+INSERT INTO `wp_actionscheduler_logs` VALUES (93,166,'action started via WP Cron','2024-03-24 15:36:16','2024-03-24 16:36:16');
+INSERT INTO `wp_actionscheduler_logs` VALUES (94,166,'action complete via WP Cron','2024-03-24 15:36:16','2024-03-24 16:36:16');
+INSERT INTO `wp_actionscheduler_logs` VALUES (95,149,'action started via WP Cron','2024-03-24 16:26:22','2024-03-24 17:26:22');
+INSERT INTO `wp_actionscheduler_logs` VALUES (96,149,'action complete via WP Cron','2024-03-24 16:26:23','2024-03-24 17:26:23');
+INSERT INTO `wp_actionscheduler_logs` VALUES (97,168,'action created','2024-03-24 16:26:23','2024-03-24 17:26:23');
+INSERT INTO `wp_actionscheduler_logs` VALUES (98,150,'action started via WP Cron','2024-03-24 16:26:23','2024-03-24 17:26:23');
+INSERT INTO `wp_actionscheduler_logs` VALUES (99,150,'action complete via WP Cron','2024-03-24 16:26:23','2024-03-24 17:26:23');
+INSERT INTO `wp_actionscheduler_logs` VALUES (101,151,'action started via WP Cron','2024-03-24 16:26:24','2024-03-24 17:26:24');
+INSERT INTO `wp_actionscheduler_logs` VALUES (102,151,'action complete via WP Cron','2024-03-24 16:26:24','2024-03-24 17:26:24');
+INSERT INTO `wp_actionscheduler_logs` VALUES (103,170,'action created','2024-03-24 16:26:24','2024-03-24 17:26:24');
+INSERT INTO `wp_actionscheduler_logs` VALUES (104,171,'action created','2024-03-24 16:26:26','2024-03-24 17:26:26');
+INSERT INTO `wp_actionscheduler_logs` VALUES (105,171,'action started via Async Request','2024-03-24 16:26:35','2024-03-24 17:26:35');
+INSERT INTO `wp_actionscheduler_logs` VALUES (106,171,'action complete via Async Request','2024-03-24 16:26:36','2024-03-24 17:26:36');
+INSERT INTO `wp_actionscheduler_logs` VALUES (107,172,'action created','2024-03-24 16:42:19','2024-03-24 17:42:19');
+INSERT INTO `wp_actionscheduler_logs` VALUES (108,172,'action started via Async Request','2024-03-24 16:42:25','2024-03-24 17:42:25');
+INSERT INTO `wp_actionscheduler_logs` VALUES (109,172,'action complete via Async Request','2024-03-24 16:42:25','2024-03-24 17:42:25');
+INSERT INTO `wp_actionscheduler_logs` VALUES (110,173,'action created','2024-03-24 17:07:38','2024-03-24 18:07:38');
+INSERT INTO `wp_actionscheduler_logs` VALUES (111,174,'action created','2024-03-24 17:07:49','2024-03-24 18:07:49');
+INSERT INTO `wp_actionscheduler_logs` VALUES (112,173,'action started via Async Request','2024-03-24 17:07:50','2024-03-24 18:07:50');
+INSERT INTO `wp_actionscheduler_logs` VALUES (113,173,'action complete via Async Request','2024-03-24 17:07:50','2024-03-24 18:07:50');
+INSERT INTO `wp_actionscheduler_logs` VALUES (114,174,'action started via Async Request','2024-03-24 17:07:50','2024-03-24 18:07:50');
+INSERT INTO `wp_actionscheduler_logs` VALUES (115,174,'action complete via Async Request','2024-03-24 17:07:51','2024-03-24 18:07:51');
+INSERT INTO `wp_actionscheduler_logs` VALUES (116,175,'action created','2024-03-24 17:48:14','2024-03-24 18:48:14');
+INSERT INTO `wp_actionscheduler_logs` VALUES (117,176,'action created','2024-03-24 17:48:28','2024-03-24 18:48:28');
+INSERT INTO `wp_actionscheduler_logs` VALUES (118,176,'action lancée via Async Request','2024-03-24 17:48:47','2024-03-24 18:48:47');
+INSERT INTO `wp_actionscheduler_logs` VALUES (119,176,'action terminée via Async Request','2024-03-24 17:48:47','2024-03-24 18:48:47');
+INSERT INTO `wp_actionscheduler_logs` VALUES (120,175,'action lancée via WP Cron','2024-03-24 17:49:55','2024-03-24 18:49:55');
+INSERT INTO `wp_actionscheduler_logs` VALUES (121,175,'action terminée via WP Cron','2024-03-24 17:49:55','2024-03-24 18:49:55');
+INSERT INTO `wp_actionscheduler_logs` VALUES (123,177,'action créée','2024-03-24 17:50:06','2024-03-24 18:50:06');
+INSERT INTO `wp_actionscheduler_logs` VALUES (124,177,'action lancée via WP Cron','2024-03-24 17:51:15','2024-03-24 18:51:15');
+INSERT INTO `wp_actionscheduler_logs` VALUES (125,177,'action terminée via WP Cron','2024-03-24 17:51:15','2024-03-24 18:51:15');
+INSERT INTO `wp_actionscheduler_logs` VALUES (126,178,'action créée','2024-03-24 17:51:20','2024-03-24 18:51:20');
+INSERT INTO `wp_actionscheduler_logs` VALUES (127,178,'action lancée via WP Cron','2024-03-24 17:53:19','2024-03-24 18:53:19');
+INSERT INTO `wp_actionscheduler_logs` VALUES (128,178,'action terminée via WP Cron','2024-03-24 17:53:19','2024-03-24 18:53:19');
+INSERT INTO `wp_actionscheduler_logs` VALUES (129,179,'action créée','2024-03-24 17:59:28','2024-03-24 18:59:28');
+INSERT INTO `wp_actionscheduler_logs` VALUES (130,179,'action lancée via WP Cron','2024-03-24 18:01:54','2024-03-24 19:01:54');
+INSERT INTO `wp_actionscheduler_logs` VALUES (131,179,'action terminée via WP Cron','2024-03-24 18:01:54','2024-03-24 19:01:54');
+INSERT INTO `wp_actionscheduler_logs` VALUES (132,180,'action créée','2024-03-24 18:18:44','2024-03-24 19:18:44');
+INSERT INTO `wp_actionscheduler_logs` VALUES (133,181,'action créée','2024-03-24 18:18:44','2024-03-24 19:18:44');
+INSERT INTO `wp_actionscheduler_logs` VALUES (134,180,'action lancée via WP Cron','2024-03-24 18:19:11','2024-03-24 19:19:11');
+INSERT INTO `wp_actionscheduler_logs` VALUES (135,180,'échec de l’action via WP Cron : L’action planifiée pour woocommerce_admin/stored_state_setup_for_products/async/run_remote_notifications ne sera pas exécutée car aucun rappel n’est enregistré.','2024-03-24 18:19:11','2024-03-24 19:19:11');
+INSERT INTO `wp_actionscheduler_logs` VALUES (136,181,'action lancée via WP Cron','2024-03-24 18:19:11','2024-03-24 19:19:11');
+INSERT INTO `wp_actionscheduler_logs` VALUES (137,181,'action terminée via WP Cron','2024-03-24 18:19:11','2024-03-24 19:19:11');
+INSERT INTO `wp_actionscheduler_logs` VALUES (138,182,'action créée','2024-03-24 18:21:29','2024-03-24 19:21:29');
+INSERT INTO `wp_actionscheduler_logs` VALUES (139,182,'action lancée via WP Cron','2024-03-24 18:22:16','2024-03-24 19:22:16');
+INSERT INTO `wp_actionscheduler_logs` VALUES (140,182,'action terminée via WP Cron','2024-03-24 18:22:16','2024-03-24 19:22:16');
+INSERT INTO `wp_actionscheduler_logs` VALUES (141,183,'action créée','2024-03-24 18:54:17','2024-03-24 19:54:17');
+INSERT INTO `wp_actionscheduler_logs` VALUES (142,183,'action lancée via WP Cron','2024-03-24 18:55:35','2024-03-24 19:55:35');
+INSERT INTO `wp_actionscheduler_logs` VALUES (143,183,'action terminée via WP Cron','2024-03-24 18:55:35','2024-03-24 19:55:35');
+INSERT INTO `wp_actionscheduler_logs` VALUES (144,184,'action créée','2024-03-25 09:40:34','2024-03-25 10:40:34');
+INSERT INTO `wp_actionscheduler_logs` VALUES (145,184,'action started via Async Request','2024-03-25 09:41:48','2024-03-25 10:41:48');
+INSERT INTO `wp_actionscheduler_logs` VALUES (146,184,'action complete via Async Request','2024-03-25 09:41:48','2024-03-25 10:41:48');
+INSERT INTO `wp_actionscheduler_logs` VALUES (147,185,'action created','2024-03-25 09:52:57','2024-03-25 10:52:57');
+INSERT INTO `wp_actionscheduler_logs` VALUES (148,185,'action started via WP Cron','2024-03-25 09:53:18','2024-03-25 10:53:18');
+INSERT INTO `wp_actionscheduler_logs` VALUES (149,185,'action complete via WP Cron','2024-03-25 09:53:18','2024-03-25 10:53:18');
+INSERT INTO `wp_actionscheduler_logs` VALUES (150,186,'action created','2024-03-25 10:04:36','2024-03-25 11:04:36');
+INSERT INTO `wp_actionscheduler_logs` VALUES (151,187,'action created','2024-03-25 10:04:46','2024-03-25 11:04:46');
+INSERT INTO `wp_actionscheduler_logs` VALUES (152,186,'action started via Async Request','2024-03-25 10:04:47','2024-03-25 11:04:47');
+INSERT INTO `wp_actionscheduler_logs` VALUES (153,186,'action complete via Async Request','2024-03-25 10:04:47','2024-03-25 11:04:47');
+INSERT INTO `wp_actionscheduler_logs` VALUES (154,187,'action started via Async Request','2024-03-25 10:04:47','2024-03-25 11:04:47');
+INSERT INTO `wp_actionscheduler_logs` VALUES (155,187,'action complete via Async Request','2024-03-25 10:04:47','2024-03-25 11:04:47');
+INSERT INTO `wp_actionscheduler_logs` VALUES (156,188,'action created','2024-03-25 10:04:48','2024-03-25 11:04:48');
+INSERT INTO `wp_actionscheduler_logs` VALUES (157,188,'action started via Async Request','2024-03-25 10:04:54','2024-03-25 11:04:54');
+INSERT INTO `wp_actionscheduler_logs` VALUES (158,188,'action complete via Async Request','2024-03-25 10:04:54','2024-03-25 11:04:54');
+INSERT INTO `wp_actionscheduler_logs` VALUES (159,189,'action created','2024-03-25 10:05:14','2024-03-25 11:05:14');
+INSERT INTO `wp_actionscheduler_logs` VALUES (160,190,'action created','2024-03-25 10:05:15','2024-03-25 11:05:15');
+INSERT INTO `wp_actionscheduler_logs` VALUES (161,191,'action created','2024-03-25 10:05:17','2024-03-25 11:05:17');
+INSERT INTO `wp_actionscheduler_logs` VALUES (162,189,'action started via Async Request','2024-03-25 10:06:10','2024-03-25 11:06:10');
+INSERT INTO `wp_actionscheduler_logs` VALUES (163,189,'action complete via Async Request','2024-03-25 10:06:10','2024-03-25 11:06:10');
+INSERT INTO `wp_actionscheduler_logs` VALUES (164,190,'action started via Async Request','2024-03-25 10:06:10','2024-03-25 11:06:10');
+INSERT INTO `wp_actionscheduler_logs` VALUES (165,190,'action complete via Async Request','2024-03-25 10:06:10','2024-03-25 11:06:10');
+INSERT INTO `wp_actionscheduler_logs` VALUES (166,191,'action started via Async Request','2024-03-25 10:06:10','2024-03-25 11:06:10');
+INSERT INTO `wp_actionscheduler_logs` VALUES (167,191,'action complete via Async Request','2024-03-25 10:06:10','2024-03-25 11:06:10');
+INSERT INTO `wp_actionscheduler_logs` VALUES (168,192,'action créée','2024-03-25 10:31:55','2024-03-25 11:31:55');
+INSERT INTO `wp_actionscheduler_logs` VALUES (169,192,'action lancée via WP Cron','2024-03-25 10:32:45','2024-03-25 11:32:45');
+INSERT INTO `wp_actionscheduler_logs` VALUES (170,192,'action terminée via WP Cron','2024-03-25 10:32:45','2024-03-25 11:32:45');
+INSERT INTO `wp_actionscheduler_logs` VALUES (171,193,'action créée','2024-03-25 11:20:02','2024-03-25 12:20:02');
+INSERT INTO `wp_actionscheduler_logs` VALUES (172,193,'action lancée via WP Cron','2024-03-25 11:20:15','2024-03-25 12:20:15');
+INSERT INTO `wp_actionscheduler_logs` VALUES (173,193,'action terminée via WP Cron','2024-03-25 11:20:15','2024-03-25 12:20:15');
+INSERT INTO `wp_actionscheduler_logs` VALUES (174,194,'action créée','2024-03-25 11:36:39','2024-03-25 12:36:39');
+INSERT INTO `wp_actionscheduler_logs` VALUES (175,194,'action lancée via WP Cron','2024-03-25 11:37:30','2024-03-25 12:37:30');
+INSERT INTO `wp_actionscheduler_logs` VALUES (176,194,'action terminée via WP Cron','2024-03-25 11:37:30','2024-03-25 12:37:30');
+/*!40000 ALTER TABLE `wp_actionscheduler_logs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_commentmeta`
+--
+
+DROP TABLE IF EXISTS `wp_commentmeta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_commentmeta` (
+  `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `comment_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci,
+  PRIMARY KEY (`meta_id`),
+  KEY `comment_id` (`comment_id`),
+  KEY `meta_key` (`meta_key`(191))
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_commentmeta`
+--
+
+LOCK TABLES `wp_commentmeta` WRITE;
+/*!40000 ALTER TABLE `wp_commentmeta` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wp_commentmeta` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_comments`
+--
+
+DROP TABLE IF EXISTS `wp_comments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_comments` (
+  `comment_ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `comment_post_ID` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `comment_author` tinytext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `comment_author_email` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `comment_author_url` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `comment_author_IP` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `comment_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `comment_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `comment_content` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `comment_karma` int(11) NOT NULL DEFAULT '0',
+  `comment_approved` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '1',
+  `comment_agent` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `comment_type` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'comment',
+  `comment_parent` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`comment_ID`),
+  KEY `comment_post_ID` (`comment_post_ID`),
+  KEY `comment_approved_date_gmt` (`comment_approved`,`comment_date_gmt`),
+  KEY `comment_date_gmt` (`comment_date_gmt`),
+  KEY `comment_parent` (`comment_parent`),
+  KEY `comment_author_email` (`comment_author_email`(10)),
+  KEY `woo_idx_comment_type` (`comment_type`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_comments`
+--
+
+LOCK TABLES `wp_comments` WRITE;
+/*!40000 ALTER TABLE `wp_comments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wp_comments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_e_events`
+--
+
+DROP TABLE IF EXISTS `wp_e_events`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_e_events` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `event_data` text COLLATE utf8mb4_unicode_520_ci,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `created_at_index` (`created_at`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_e_events`
+--
+
+LOCK TABLES `wp_e_events` WRITE;
+/*!40000 ALTER TABLE `wp_e_events` DISABLE KEYS */;
+INSERT INTO `wp_e_events` VALUES (1,'{\"event\":\"modal load\",\"version\":\"\",\"details\":\"{\\\"placement\\\":\\\"Onboarding wizard\\\",\\\"step\\\":\\\"account\\\",\\\"user_state\\\":\\\"anon\\\"}\",\"ts\":\"2024-03-21T21:06:37.488-01:00\"}','2024-03-21 21:06:37');
+INSERT INTO `wp_e_events` VALUES (2,'{\"event\":\"skip\",\"version\":\"\",\"details\":\"{\\\"placement\\\":\\\"Onboarding wizard\\\",\\\"step\\\":\\\"account\\\"}\",\"ts\":\"2024-03-21T21:06:45.116-01:00\"}','2024-03-21 21:06:45');
+INSERT INTO `wp_e_events` VALUES (3,'{\"event\":\"modal load\",\"version\":\"\",\"details\":\"{\\\"placement\\\":\\\"Onboarding wizard\\\",\\\"step\\\":\\\"hello\\\",\\\"user_state\\\":\\\"anon\\\"}\",\"ts\":\"2024-03-21T21:06:45.166-01:00\"}','2024-03-21 21:06:45');
+INSERT INTO `wp_e_events` VALUES (4,'{\"event\":\"modal load\",\"version\":\"\",\"details\":\"{\\\"placement\\\":\\\"Onboarding wizard\\\",\\\"step\\\":\\\"siteName\\\",\\\"user_state\\\":\\\"anon\\\"}\",\"ts\":\"2024-03-21T21:06:53.386-01:00\"}','2024-03-21 21:06:53');
+INSERT INTO `wp_e_events` VALUES (5,'{\"event\":\"skip\",\"version\":\"\",\"details\":\"{\\\"placement\\\":\\\"Onboarding wizard\\\",\\\"step\\\":\\\"hello\\\"}\",\"ts\":\"2024-03-21T21:06:53.323-01:00\"}','2024-03-21 21:06:53');
+INSERT INTO `wp_e_events` VALUES (6,'{\"event\":\"modal load\",\"version\":\"\",\"details\":\"{\\\"placement\\\":\\\"Onboarding wizard\\\",\\\"step\\\":\\\"siteLogo\\\",\\\"user_state\\\":\\\"anon\\\"}\",\"ts\":\"2024-03-21T21:06:58.376-01:00\"}','2024-03-21 21:06:58');
+INSERT INTO `wp_e_events` VALUES (7,'{\"event\":\"skip\",\"version\":\"\",\"details\":\"{\\\"placement\\\":\\\"Onboarding wizard\\\",\\\"step\\\":\\\"siteName\\\"}\",\"ts\":\"2024-03-21T21:06:58.336-01:00\"}','2024-03-21 21:06:58');
+INSERT INTO `wp_e_events` VALUES (8,'{\"event\":\"next\",\"version\":\"\",\"details\":\"{\\\"placement\\\":\\\"Onboarding wizard\\\",\\\"step\\\":\\\"siteLogo\\\"}\",\"ts\":\"2024-03-21T21:07:02.824-01:00\"}','2024-03-21 21:07:03');
+INSERT INTO `wp_e_events` VALUES (9,'{\"event\":\"modal load\",\"version\":\"\",\"details\":\"{\\\"placement\\\":\\\"Onboarding wizard\\\",\\\"step\\\":\\\"goodToGo\\\",\\\"user_state\\\":\\\"anon\\\"}\",\"ts\":\"2024-03-21T21:07:02.886-01:00\"}','2024-03-21 21:07:03');
+INSERT INTO `wp_e_events` VALUES (10,'{\"event\":\"skip\",\"version\":\"\",\"details\":\"{\\\"placement\\\":\\\"Onboarding wizard\\\",\\\"step\\\":\\\"goodToGo\\\"}\",\"ts\":\"2024-03-21T21:07:06.019-01:00\"}','2024-03-21 21:07:06');
+INSERT INTO `wp_e_events` VALUES (11,'{\"event\":\"modal load\",\"version\":\"\",\"details\":\"{\\\"placement\\\":\\\"Onboarding wizard\\\",\\\"step\\\":\\\"goodToGo\\\",\\\"user_state\\\":\\\"anon\\\"}\",\"ts\":\"2024-03-21T21:07:36.896-01:00\"}','2024-03-21 21:07:37');
+INSERT INTO `wp_e_events` VALUES (12,'{\"event\":\"starting canvas click\",\"version\":\"\",\"details\":\"{\\\"placement\\\":\\\"Onboarding wizard\\\",\\\"selection\\\":\\\"blank\\\"}\",\"ts\":\"2024-03-21T21:07:45.588-01:00\"}','2024-03-21 21:07:46');
+INSERT INTO `wp_e_events` VALUES (13,'{\"event\":\"modal load\",\"version\":\"\",\"details\":\"{\\\"placement\\\":\\\"Onboarding wizard\\\",\\\"step\\\":\\\"hello\\\",\\\"user_state\\\":\\\"anon\\\"}\",\"ts\":\"2024-03-21T21:15:00.221-01:00\"}','2024-03-21 21:15:00');
+/*!40000 ALTER TABLE `wp_e_events` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_gla_attribute_mapping_rules`
+--
+
+DROP TABLE IF EXISTS `wp_gla_attribute_mapping_rules`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_gla_attribute_mapping_rules` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `attribute` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `source` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `category_condition_type` varchar(10) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `categories` text COLLATE utf8mb4_unicode_520_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_gla_attribute_mapping_rules`
+--
+
+LOCK TABLES `wp_gla_attribute_mapping_rules` WRITE;
+/*!40000 ALTER TABLE `wp_gla_attribute_mapping_rules` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wp_gla_attribute_mapping_rules` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_gla_budget_recommendations`
+--
+
+DROP TABLE IF EXISTS `wp_gla_budget_recommendations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_gla_budget_recommendations` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `currency` varchar(3) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `country` varchar(2) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `daily_budget` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `country_currency` (`country`,`currency`)
+) ENGINE=InnoDB AUTO_INCREMENT=4231 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_gla_budget_recommendations`
+--
+
+LOCK TABLES `wp_gla_budget_recommendations` WRITE;
+/*!40000 ALTER TABLE `wp_gla_budget_recommendations` DISABLE KEYS */;
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1,'AED','US',55);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (2,'AED','CH',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (3,'AED','AU',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (4,'AED','GB',64);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (5,'AED','DE',64);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (6,'AED','DK',51);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (7,'AED','AT',44);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (8,'AED','NO',44);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (9,'AED','CA',51);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (10,'AED','NL',51);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (11,'AED','SE',51);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (12,'AED','IE',40);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (13,'AED','BE',40);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (14,'AED','FI',40);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (15,'AED','FR',51);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (16,'AED','NZ',44);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (17,'AED','HK',22);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (18,'AED','CZ',44);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (19,'AED','SK',40);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (20,'AED','AE',51);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (21,'AED','SG',51);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (22,'AED','IL',51);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (23,'AED','KW',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (24,'AED','IT',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (25,'AED','JP',64);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (26,'AED','ES',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (27,'AED','VE',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (28,'AED','HU',40);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (29,'AED','PT',44);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (30,'AED','GR',44);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (31,'AED','KR',22);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (32,'AED','TW',44);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (33,'AED','PL',20);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (34,'AED','ZM',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (35,'AED','PR',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (36,'AED','CI',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (37,'AED','RO',40);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (38,'AED','BH',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (39,'AED','PA',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (40,'AED','GH',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (41,'AED','KH',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (42,'AED','SN',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (43,'AED','SA',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (44,'AED','RU',51);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (45,'AED','UG',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (46,'AED','BR',20);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (47,'AED','NI',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (48,'AED','MG',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (49,'AED','DO',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (50,'AED','MX',22);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (51,'AED','OM',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (52,'AED','CM',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (53,'AED','ZA',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (54,'AED','CL',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (55,'AED','KE',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (56,'AED','NP',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (57,'AED','PE',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (58,'AED','UA',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (59,'AED','MZ',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (60,'AED','TZ',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (61,'AED','AO',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (62,'AED','JO',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (63,'AED','ZW',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (64,'AED','TR',40);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (65,'AED','MU',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (66,'AED','SV',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (67,'AED','TH',22);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (68,'AED','CO',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (69,'AED','LK',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (70,'AED','CR',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (71,'AED','AR',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (72,'AED','MA',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (73,'AED','MY',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (74,'AED','KZ',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (75,'AED','DZ',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (76,'AED','ID',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (77,'AED','NG',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (78,'AED','GT',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (79,'AED','VN',20);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (80,'AED','BY',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (81,'AED','EG',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (82,'AED','UY',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (83,'AED','BD',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (84,'AED','PK',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (85,'AED','PH',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (86,'AED','ET',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (87,'AED','TN',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (88,'AED','LB',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (89,'AED','IN',20);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (90,'AED','PY',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (91,'AED','UZ',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (92,'AED','EC',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (93,'AED','MM',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (94,'AED','GE',50);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (95,'ARS','US',5347);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (96,'ARS','CH',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (97,'ARS','AU',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (98,'ARS','GB',6238);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (99,'ARS','DE',6238);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (100,'ARS','DK',4991);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (101,'ARS','AT',4278);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (102,'ARS','NO',4278);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (103,'ARS','CA',4991);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (104,'ARS','NL',4991);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (105,'ARS','SE',4991);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (106,'ARS','IE',3921);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (107,'ARS','BE',3921);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (108,'ARS','FI',3921);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (109,'ARS','FR',4991);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (110,'ARS','NZ',4278);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (111,'ARS','HK',2139);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (112,'ARS','CZ',4278);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (113,'ARS','SK',3921);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (114,'ARS','AE',4991);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (115,'ARS','SG',4991);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (116,'ARS','IL',4991);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (117,'ARS','KW',2317);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (118,'ARS','IT',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (119,'ARS','JP',6238);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (120,'ARS','ES',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (121,'ARS','VE',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (122,'ARS','HU',3921);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (123,'ARS','PT',4278);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (124,'ARS','GR',4278);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (125,'ARS','KR',2139);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (126,'ARS','TW',4278);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (127,'ARS','PL',1961);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (128,'ARS','ZM',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (129,'ARS','PR',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (130,'ARS','CI',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (131,'ARS','RO',3921);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (132,'ARS','BH',2317);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (133,'ARS','PA',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (134,'ARS','GH',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (135,'ARS','KH',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (136,'ARS','SN',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (137,'ARS','SA',2317);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (138,'ARS','RU',4991);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (139,'ARS','UG',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (140,'ARS','BR',1961);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (141,'ARS','NI',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (142,'ARS','MG',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (143,'ARS','DO',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (144,'ARS','MX',2139);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (145,'ARS','OM',2317);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (146,'ARS','CM',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (147,'ARS','ZA',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (148,'ARS','CL',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (149,'ARS','KE',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (150,'ARS','NP',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (151,'ARS','PE',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (152,'ARS','UA',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (153,'ARS','MZ',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (154,'ARS','TZ',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (155,'ARS','AO',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (156,'ARS','JO',2317);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (157,'ARS','ZW',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (158,'ARS','TR',3921);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (159,'ARS','MU',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (160,'ARS','SV',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (161,'ARS','TH',2139);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (162,'ARS','CO',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (163,'ARS','LK',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (164,'ARS','CR',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (165,'ARS','AR',2317);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (166,'ARS','MA',2317);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (167,'ARS','MY',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (168,'ARS','KZ',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (169,'ARS','DZ',2317);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (170,'ARS','ID',2317);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (171,'ARS','NG',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (172,'ARS','GT',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (173,'ARS','VN',1961);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (174,'ARS','BY',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (175,'ARS','EG',2317);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (176,'ARS','UY',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (177,'ARS','BD',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (178,'ARS','PK',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (179,'ARS','PH',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (180,'ARS','ET',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (181,'ARS','TN',2317);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (182,'ARS','LB',2317);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (183,'ARS','IN',1961);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (184,'ARS','PY',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (185,'ARS','UZ',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (186,'ARS','EC',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (187,'ARS','MM',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (188,'ARS','GE',4812);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (189,'AUD','US',23);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (190,'AUD','CH',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (191,'AUD','AU',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (192,'AUD','GB',27);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (193,'AUD','DE',27);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (194,'AUD','DK',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (195,'AUD','AT',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (196,'AUD','NO',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (197,'AUD','CA',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (198,'AUD','NL',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (199,'AUD','SE',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (200,'AUD','IE',17);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (201,'AUD','BE',17);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (202,'AUD','FI',17);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (203,'AUD','FR',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (204,'AUD','NZ',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (205,'AUD','HK',9);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (206,'AUD','CZ',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (207,'AUD','SK',17);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (208,'AUD','AE',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (209,'AUD','SG',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (210,'AUD','IL',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (211,'AUD','KW',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (212,'AUD','IT',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (213,'AUD','JP',27);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (214,'AUD','ES',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (215,'AUD','VE',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (216,'AUD','HU',17);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (217,'AUD','PT',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (218,'AUD','GR',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (219,'AUD','KR',9);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (220,'AUD','TW',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (221,'AUD','PL',8);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (222,'AUD','ZM',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (223,'AUD','PR',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (224,'AUD','CI',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (225,'AUD','RO',17);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (226,'AUD','BH',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (227,'AUD','PA',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (228,'AUD','GH',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (229,'AUD','KH',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (230,'AUD','SN',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (231,'AUD','SA',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (232,'AUD','RU',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (233,'AUD','UG',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (234,'AUD','BR',8);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (235,'AUD','NI',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (236,'AUD','MG',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (237,'AUD','DO',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (238,'AUD','MX',9);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (239,'AUD','OM',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (240,'AUD','CM',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (241,'AUD','ZA',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (242,'AUD','CL',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (243,'AUD','KE',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (244,'AUD','NP',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (245,'AUD','PE',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (246,'AUD','UA',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (247,'AUD','MZ',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (248,'AUD','TZ',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (249,'AUD','AO',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (250,'AUD','JO',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (251,'AUD','ZW',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (252,'AUD','TR',17);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (253,'AUD','MU',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (254,'AUD','SV',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (255,'AUD','TH',9);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (256,'AUD','CO',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (257,'AUD','LK',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (258,'AUD','CR',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (259,'AUD','AR',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (260,'AUD','MA',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (261,'AUD','MY',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (262,'AUD','KZ',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (263,'AUD','DZ',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (264,'AUD','ID',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (265,'AUD','NG',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (266,'AUD','GT',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (267,'AUD','VN',8);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (268,'AUD','BY',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (269,'AUD','EG',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (270,'AUD','UY',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (271,'AUD','BD',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (272,'AUD','PK',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (273,'AUD','PH',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (274,'AUD','ET',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (275,'AUD','TN',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (276,'AUD','LB',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (277,'AUD','IN',8);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (278,'AUD','PY',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (279,'AUD','UZ',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (280,'AUD','EC',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (281,'AUD','MM',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (282,'AUD','GE',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (283,'BGN','US',27);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (284,'BGN','CH',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (285,'BGN','AU',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (286,'BGN','GB',31);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (287,'BGN','DE',31);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (288,'BGN','DK',25);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (289,'BGN','AT',22);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (290,'BGN','NO',22);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (291,'BGN','CA',25);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (292,'BGN','NL',25);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (293,'BGN','SE',25);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (294,'BGN','IE',20);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (295,'BGN','BE',20);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (296,'BGN','FI',20);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (297,'BGN','FR',25);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (298,'BGN','NZ',22);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (299,'BGN','HK',11);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (300,'BGN','CZ',22);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (301,'BGN','SK',20);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (302,'BGN','AE',25);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (303,'BGN','SG',25);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (304,'BGN','IL',25);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (305,'BGN','KW',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (306,'BGN','IT',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (307,'BGN','JP',31);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (308,'BGN','ES',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (309,'BGN','VE',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (310,'BGN','HU',20);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (311,'BGN','PT',22);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (312,'BGN','GR',22);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (313,'BGN','KR',11);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (314,'BGN','TW',22);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (315,'BGN','PL',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (316,'BGN','ZM',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (317,'BGN','PR',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (318,'BGN','CI',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (319,'BGN','RO',20);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (320,'BGN','BH',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (321,'BGN','PA',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (322,'BGN','GH',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (323,'BGN','KH',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (324,'BGN','SN',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (325,'BGN','SA',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (326,'BGN','RU',25);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (327,'BGN','UG',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (328,'BGN','BR',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (329,'BGN','NI',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (330,'BGN','MG',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (331,'BGN','DO',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (332,'BGN','MX',11);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (333,'BGN','OM',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (334,'BGN','CM',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (335,'BGN','ZA',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (336,'BGN','CL',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (337,'BGN','KE',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (338,'BGN','NP',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (339,'BGN','PE',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (340,'BGN','UA',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (341,'BGN','MZ',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (342,'BGN','TZ',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (343,'BGN','AO',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (344,'BGN','JO',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (345,'BGN','ZW',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (346,'BGN','TR',20);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (347,'BGN','MU',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (348,'BGN','SV',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (349,'BGN','TH',11);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (350,'BGN','CO',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (351,'BGN','LK',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (352,'BGN','CR',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (353,'BGN','AR',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (354,'BGN','MA',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (355,'BGN','MY',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (356,'BGN','KZ',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (357,'BGN','DZ',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (358,'BGN','ID',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (359,'BGN','NG',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (360,'BGN','GT',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (361,'BGN','VN',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (362,'BGN','BY',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (363,'BGN','EG',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (364,'BGN','UY',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (365,'BGN','BD',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (366,'BGN','PK',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (367,'BGN','PH',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (368,'BGN','ET',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (369,'BGN','TN',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (370,'BGN','LB',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (371,'BGN','IN',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (372,'BGN','PY',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (373,'BGN','UZ',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (374,'BGN','EC',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (375,'BGN','MM',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (376,'BGN','GE',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (377,'BOB','US',104);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (378,'BOB','CH',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (379,'BOB','AU',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (380,'BOB','GB',121);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (381,'BOB','DE',121);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (382,'BOB','DK',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (383,'BOB','AT',83);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (384,'BOB','NO',83);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (385,'BOB','CA',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (386,'BOB','NL',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (387,'BOB','SE',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (388,'BOB','IE',76);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (389,'BOB','BE',76);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (390,'BOB','FI',76);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (391,'BOB','FR',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (392,'BOB','NZ',83);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (393,'BOB','HK',41);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (394,'BOB','CZ',83);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (395,'BOB','SK',76);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (396,'BOB','AE',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (397,'BOB','SG',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (398,'BOB','IL',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (399,'BOB','KW',45);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (400,'BOB','IT',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (401,'BOB','JP',121);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (402,'BOB','ES',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (403,'BOB','VE',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (404,'BOB','HU',76);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (405,'BOB','PT',83);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (406,'BOB','GR',83);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (407,'BOB','KR',41);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (408,'BOB','TW',83);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (409,'BOB','PL',38);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (410,'BOB','ZM',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (411,'BOB','PR',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (412,'BOB','CI',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (413,'BOB','RO',76);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (414,'BOB','BH',45);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (415,'BOB','PA',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (416,'BOB','GH',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (417,'BOB','KH',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (418,'BOB','SN',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (419,'BOB','SA',45);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (420,'BOB','RU',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (421,'BOB','UG',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (422,'BOB','BR',38);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (423,'BOB','NI',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (424,'BOB','MG',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (425,'BOB','DO',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (426,'BOB','MX',41);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (427,'BOB','OM',45);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (428,'BOB','CM',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (429,'BOB','ZA',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (430,'BOB','CL',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (431,'BOB','KE',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (432,'BOB','NP',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (433,'BOB','PE',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (434,'BOB','UA',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (435,'BOB','MZ',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (436,'BOB','TZ',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (437,'BOB','AO',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (438,'BOB','JO',45);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (439,'BOB','ZW',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (440,'BOB','TR',76);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (441,'BOB','MU',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (442,'BOB','SV',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (443,'BOB','TH',41);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (444,'BOB','CO',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (445,'BOB','LK',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (446,'BOB','CR',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (447,'BOB','AR',45);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (448,'BOB','MA',45);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (449,'BOB','MY',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (450,'BOB','KZ',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (451,'BOB','DZ',45);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (452,'BOB','ID',45);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (453,'BOB','NG',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (454,'BOB','GT',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (455,'BOB','VN',38);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (456,'BOB','BY',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (457,'BOB','EG',45);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (458,'BOB','UY',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (459,'BOB','BD',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (460,'BOB','PK',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (461,'BOB','PH',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (462,'BOB','ET',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (463,'BOB','TN',45);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (464,'BOB','LB',45);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (465,'BOB','IN',38);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (466,'BOB','PY',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (467,'BOB','UZ',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (468,'BOB','EC',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (469,'BOB','MM',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (470,'BOB','GE',93);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (471,'BRL','US',73);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (472,'BRL','CH',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (473,'BRL','AU',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (474,'BRL','GB',86);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (475,'BRL','DE',86);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (476,'BRL','DK',69);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (477,'BRL','AT',59);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (478,'BRL','NO',59);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (479,'BRL','CA',69);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (480,'BRL','NL',69);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (481,'BRL','SE',69);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (482,'BRL','IE',54);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (483,'BRL','BE',54);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (484,'BRL','FI',54);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (485,'BRL','FR',69);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (486,'BRL','NZ',59);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (487,'BRL','HK',29);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (488,'BRL','CZ',59);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (489,'BRL','SK',54);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (490,'BRL','AE',69);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (491,'BRL','SG',69);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (492,'BRL','IL',69);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (493,'BRL','KW',32);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (494,'BRL','IT',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (495,'BRL','JP',86);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (496,'BRL','ES',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (497,'BRL','VE',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (498,'BRL','HU',54);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (499,'BRL','PT',59);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (500,'BRL','GR',59);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (501,'BRL','KR',29);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (502,'BRL','TW',59);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (503,'BRL','PL',27);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (504,'BRL','ZM',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (505,'BRL','PR',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (506,'BRL','CI',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (507,'BRL','RO',54);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (508,'BRL','BH',32);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (509,'BRL','PA',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (510,'BRL','GH',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (511,'BRL','KH',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (512,'BRL','SN',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (513,'BRL','SA',32);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (514,'BRL','RU',69);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (515,'BRL','UG',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (516,'BRL','BR',27);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (517,'BRL','NI',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (518,'BRL','MG',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (519,'BRL','DO',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (520,'BRL','MX',29);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (521,'BRL','OM',32);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (522,'BRL','CM',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (523,'BRL','ZA',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (524,'BRL','CL',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (525,'BRL','KE',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (526,'BRL','NP',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (527,'BRL','PE',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (528,'BRL','UA',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (529,'BRL','MZ',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (530,'BRL','TZ',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (531,'BRL','AO',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (532,'BRL','JO',32);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (533,'BRL','ZW',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (534,'BRL','TR',54);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (535,'BRL','MU',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (536,'BRL','SV',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (537,'BRL','TH',29);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (538,'BRL','CO',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (539,'BRL','LK',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (540,'BRL','CR',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (541,'BRL','AR',32);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (542,'BRL','MA',32);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (543,'BRL','MY',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (544,'BRL','KZ',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (545,'BRL','DZ',32);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (546,'BRL','ID',32);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (547,'BRL','NG',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (548,'BRL','GT',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (549,'BRL','VN',27);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (550,'BRL','BY',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (551,'BRL','EG',32);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (552,'BRL','UY',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (553,'BRL','BD',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (554,'BRL','PK',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (555,'BRL','PH',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (556,'BRL','ET',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (557,'BRL','TN',32);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (558,'BRL','LB',32);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (559,'BRL','IN',27);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (560,'BRL','PY',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (561,'BRL','UZ',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (562,'BRL','EC',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (563,'BRL','MM',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (564,'BRL','GE',66);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (565,'CAD','US',21);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (566,'CAD','CH',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (567,'CAD','AU',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (568,'CAD','GB',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (569,'CAD','DE',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (570,'CAD','DK',19);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (571,'CAD','AT',16);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (572,'CAD','NO',16);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (573,'CAD','CA',19);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (574,'CAD','NL',19);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (575,'CAD','SE',19);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (576,'CAD','IE',15);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (577,'CAD','BE',15);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (578,'CAD','FI',15);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (579,'CAD','FR',19);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (580,'CAD','NZ',16);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (581,'CAD','HK',8);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (582,'CAD','CZ',16);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (583,'CAD','SK',15);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (584,'CAD','AE',19);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (585,'CAD','SG',19);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (586,'CAD','IL',19);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (587,'CAD','KW',9);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (588,'CAD','IT',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (589,'CAD','JP',24);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (590,'CAD','ES',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (591,'CAD','VE',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (592,'CAD','HU',15);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (593,'CAD','PT',16);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (594,'CAD','GR',16);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (595,'CAD','KR',8);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (596,'CAD','TW',16);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (597,'CAD','PL',8);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (598,'CAD','ZM',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (599,'CAD','PR',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (600,'CAD','CI',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (601,'CAD','RO',15);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (602,'CAD','BH',9);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (603,'CAD','PA',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (604,'CAD','GH',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (605,'CAD','KH',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (606,'CAD','SN',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (607,'CAD','SA',9);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (608,'CAD','RU',19);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (609,'CAD','UG',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (610,'CAD','BR',8);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (611,'CAD','NI',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (612,'CAD','MG',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (613,'CAD','DO',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (614,'CAD','MX',8);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (615,'CAD','OM',9);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (616,'CAD','CM',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (617,'CAD','ZA',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (618,'CAD','CL',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (619,'CAD','KE',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (620,'CAD','NP',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (621,'CAD','PE',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (622,'CAD','UA',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (623,'CAD','MZ',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (624,'CAD','TZ',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (625,'CAD','AO',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (626,'CAD','JO',9);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (627,'CAD','ZW',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (628,'CAD','TR',15);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (629,'CAD','MU',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (630,'CAD','SV',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (631,'CAD','TH',8);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (632,'CAD','CO',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (633,'CAD','LK',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (634,'CAD','CR',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (635,'CAD','AR',9);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (636,'CAD','MA',9);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (637,'CAD','MY',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (638,'CAD','KZ',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (639,'CAD','DZ',9);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (640,'CAD','ID',9);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (641,'CAD','NG',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (642,'CAD','GT',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (643,'CAD','VN',8);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (644,'CAD','BY',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (645,'CAD','EG',9);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (646,'CAD','UY',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (647,'CAD','BD',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (648,'CAD','PK',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (649,'CAD','PH',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (650,'CAD','ET',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (651,'CAD','TN',9);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (652,'CAD','LB',9);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (653,'CAD','IN',8);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (654,'CAD','PY',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (655,'CAD','UZ',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (656,'CAD','EC',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (657,'CAD','MM',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (658,'CAD','GE',18);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (659,'CHF','US',13);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (660,'CHF','CH',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (661,'CHF','AU',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (662,'CHF','GB',15);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (663,'CHF','DE',15);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (664,'CHF','DK',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (665,'CHF','AT',11);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (666,'CHF','NO',11);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (667,'CHF','CA',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (668,'CHF','NL',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (669,'CHF','SE',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (670,'CHF','IE',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (671,'CHF','BE',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (672,'CHF','FI',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (673,'CHF','FR',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (674,'CHF','NZ',11);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (675,'CHF','HK',5);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (676,'CHF','CZ',11);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (677,'CHF','SK',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (678,'CHF','AE',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (679,'CHF','SG',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (680,'CHF','IL',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (681,'CHF','KW',6);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (682,'CHF','IT',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (683,'CHF','JP',15);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (684,'CHF','ES',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (685,'CHF','VE',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (686,'CHF','HU',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (687,'CHF','PT',11);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (688,'CHF','GR',11);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (689,'CHF','KR',5);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (690,'CHF','TW',11);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (691,'CHF','PL',5);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (692,'CHF','ZM',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (693,'CHF','PR',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (694,'CHF','CI',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (695,'CHF','RO',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (696,'CHF','BH',6);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (697,'CHF','PA',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (698,'CHF','GH',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (699,'CHF','KH',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (700,'CHF','SN',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (701,'CHF','SA',6);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (702,'CHF','RU',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (703,'CHF','UG',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (704,'CHF','BR',5);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (705,'CHF','NI',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (706,'CHF','MG',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (707,'CHF','DO',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (708,'CHF','MX',5);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (709,'CHF','OM',6);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (710,'CHF','CM',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (711,'CHF','ZA',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (712,'CHF','CL',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (713,'CHF','KE',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (714,'CHF','NP',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (715,'CHF','PE',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (716,'CHF','UA',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (717,'CHF','MZ',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (718,'CHF','TZ',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (719,'CHF','AO',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (720,'CHF','JO',6);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (721,'CHF','ZW',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (722,'CHF','TR',10);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (723,'CHF','MU',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (724,'CHF','SV',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (725,'CHF','TH',5);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (726,'CHF','CO',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (727,'CHF','LK',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (728,'CHF','CR',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (729,'CHF','AR',6);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (730,'CHF','MA',6);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (731,'CHF','MY',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (732,'CHF','KZ',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (733,'CHF','DZ',6);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (734,'CHF','ID',6);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (735,'CHF','NG',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (736,'CHF','GT',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (737,'CHF','VN',5);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (738,'CHF','BY',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (739,'CHF','EG',6);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (740,'CHF','UY',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (741,'CHF','BD',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (742,'CHF','PK',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (743,'CHF','PH',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (744,'CHF','ET',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (745,'CHF','TN',6);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (746,'CHF','LB',6);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (747,'CHF','IN',5);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (748,'CHF','PY',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (749,'CHF','UZ',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (750,'CHF','EC',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (751,'CHF','MM',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (752,'CHF','GE',12);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (753,'CLP','US',13081);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (754,'CLP','CH',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (755,'CLP','AU',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (756,'CLP','GB',15261);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (757,'CLP','DE',15261);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (758,'CLP','DK',12209);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (759,'CLP','AT',10464);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (760,'CLP','NO',10464);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (761,'CLP','CA',12209);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (762,'CLP','NL',12209);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (763,'CLP','SE',12209);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (764,'CLP','IE',9592);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (765,'CLP','BE',9592);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (766,'CLP','FI',9592);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (767,'CLP','FR',12209);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (768,'CLP','NZ',10464);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (769,'CLP','HK',5232);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (770,'CLP','CZ',10464);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (771,'CLP','SK',9592);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (772,'CLP','AE',12209);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (773,'CLP','SG',12209);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (774,'CLP','IL',12209);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (775,'CLP','KW',5668);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (776,'CLP','IT',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (777,'CLP','JP',15261);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (778,'CLP','ES',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (779,'CLP','VE',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (780,'CLP','HU',9592);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (781,'CLP','PT',10464);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (782,'CLP','GR',10464);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (783,'CLP','KR',5232);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (784,'CLP','TW',10464);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (785,'CLP','PL',4796);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (786,'CLP','ZM',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (787,'CLP','PR',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (788,'CLP','CI',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (789,'CLP','RO',9592);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (790,'CLP','BH',5668);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (791,'CLP','PA',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (792,'CLP','GH',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (793,'CLP','KH',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (794,'CLP','SN',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (795,'CLP','SA',5668);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (796,'CLP','RU',12209);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (797,'CLP','UG',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (798,'CLP','BR',4796);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (799,'CLP','NI',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (800,'CLP','MG',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (801,'CLP','DO',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (802,'CLP','MX',5232);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (803,'CLP','OM',5668);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (804,'CLP','CM',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (805,'CLP','ZA',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (806,'CLP','CL',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (807,'CLP','KE',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (808,'CLP','NP',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (809,'CLP','PE',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (810,'CLP','UA',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (811,'CLP','MZ',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (812,'CLP','TZ',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (813,'CLP','AO',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (814,'CLP','JO',5668);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (815,'CLP','ZW',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (816,'CLP','TR',9592);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (817,'CLP','MU',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (818,'CLP','SV',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (819,'CLP','TH',5232);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (820,'CLP','CO',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (821,'CLP','LK',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (822,'CLP','CR',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (823,'CLP','AR',5668);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (824,'CLP','MA',5668);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (825,'CLP','MY',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (826,'CLP','KZ',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (827,'CLP','DZ',5668);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (828,'CLP','ID',5668);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (829,'CLP','NG',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (830,'CLP','GT',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (831,'CLP','VN',4796);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (832,'CLP','BY',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (833,'CLP','EG',5668);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (834,'CLP','UY',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (835,'CLP','BD',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (836,'CLP','PK',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (837,'CLP','PH',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (838,'CLP','ET',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (839,'CLP','TN',5668);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (840,'CLP','LB',5668);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (841,'CLP','IN',4796);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (842,'CLP','PY',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (843,'CLP','UZ',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (844,'CLP','EC',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (845,'CLP','MM',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (846,'CLP','GE',11773);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (847,'CNY','US',107);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (848,'CNY','CH',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (849,'CNY','AU',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (850,'CNY','GB',125);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (851,'CNY','DE',125);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (852,'CNY','DK',100);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (853,'CNY','AT',86);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (854,'CNY','NO',86);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (855,'CNY','CA',100);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (856,'CNY','NL',100);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (857,'CNY','SE',100);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (858,'CNY','IE',79);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (859,'CNY','BE',79);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (860,'CNY','FI',79);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (861,'CNY','FR',100);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (862,'CNY','NZ',86);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (863,'CNY','HK',43);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (864,'CNY','CZ',86);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (865,'CNY','SK',79);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (866,'CNY','AE',100);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (867,'CNY','SG',100);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (868,'CNY','IL',100);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (869,'CNY','KW',47);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (870,'CNY','IT',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (871,'CNY','JP',125);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (872,'CNY','ES',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (873,'CNY','VE',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (874,'CNY','HU',79);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (875,'CNY','PT',86);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (876,'CNY','GR',86);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (877,'CNY','KR',43);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (878,'CNY','TW',86);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (879,'CNY','PL',39);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (880,'CNY','ZM',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (881,'CNY','PR',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (882,'CNY','CI',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (883,'CNY','RO',79);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (884,'CNY','BH',47);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (885,'CNY','PA',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (886,'CNY','GH',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (887,'CNY','KH',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (888,'CNY','SN',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (889,'CNY','SA',47);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (890,'CNY','RU',100);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (891,'CNY','UG',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (892,'CNY','BR',39);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (893,'CNY','NI',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (894,'CNY','MG',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (895,'CNY','DO',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (896,'CNY','MX',43);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (897,'CNY','OM',47);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (898,'CNY','CM',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (899,'CNY','ZA',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (900,'CNY','CL',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (901,'CNY','KE',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (902,'CNY','NP',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (903,'CNY','PE',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (904,'CNY','UA',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (905,'CNY','MZ',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (906,'CNY','TZ',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (907,'CNY','AO',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (908,'CNY','JO',47);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (909,'CNY','ZW',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (910,'CNY','TR',79);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (911,'CNY','MU',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (912,'CNY','SV',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (913,'CNY','TH',43);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (914,'CNY','CO',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (915,'CNY','LK',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (916,'CNY','CR',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (917,'CNY','AR',47);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (918,'CNY','MA',47);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (919,'CNY','MY',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (920,'CNY','KZ',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (921,'CNY','DZ',47);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (922,'CNY','ID',47);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (923,'CNY','NG',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (924,'CNY','GT',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (925,'CNY','VN',39);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (926,'CNY','BY',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (927,'CNY','EG',47);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (928,'CNY','UY',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (929,'CNY','BD',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (930,'CNY','PK',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (931,'CNY','PH',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (932,'CNY','ET',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (933,'CNY','TN',47);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (934,'CNY','LB',47);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (935,'CNY','IN',39);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (936,'CNY','PY',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (937,'CNY','UZ',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (938,'CNY','EC',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (939,'CNY','MM',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (940,'CNY','GE',97);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (941,'COP','US',61099);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (942,'COP','CH',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (943,'COP','AU',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (944,'COP','GB',71282);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (945,'COP','DE',71282);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (946,'COP','DK',57026);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (947,'COP','AT',48879);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (948,'COP','NO',48879);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (949,'COP','CA',57026);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (950,'COP','NL',57026);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (951,'COP','SE',57026);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (952,'COP','IE',44806);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (953,'COP','BE',44806);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (954,'COP','FI',44806);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (955,'COP','FR',57026);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (956,'COP','NZ',48879);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (957,'COP','HK',24440);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (958,'COP','CZ',48879);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (959,'COP','SK',44806);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (960,'COP','AE',57026);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (961,'COP','SG',57026);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (962,'COP','IL',57026);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (963,'COP','KW',26476);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (964,'COP','IT',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (965,'COP','JP',71282);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (966,'COP','ES',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (967,'COP','VE',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (968,'COP','HU',44806);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (969,'COP','PT',48879);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (970,'COP','GR',48879);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (971,'COP','KR',24440);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (972,'COP','TW',48879);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (973,'COP','PL',22403);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (974,'COP','ZM',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (975,'COP','PR',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (976,'COP','CI',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (977,'COP','RO',44806);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (978,'COP','BH',26476);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (979,'COP','PA',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (980,'COP','GH',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (981,'COP','KH',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (982,'COP','SN',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (983,'COP','SA',26476);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (984,'COP','RU',57026);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (985,'COP','UG',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (986,'COP','BR',22403);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (987,'COP','NI',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (988,'COP','MG',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (989,'COP','DO',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (990,'COP','MX',24440);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (991,'COP','OM',26476);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (992,'COP','CM',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (993,'COP','ZA',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (994,'COP','CL',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (995,'COP','KE',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (996,'COP','NP',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (997,'COP','PE',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (998,'COP','UA',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (999,'COP','MZ',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1000,'COP','TZ',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1001,'COP','AO',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1002,'COP','JO',26476);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1003,'COP','ZW',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1004,'COP','TR',44806);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1005,'COP','MU',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1006,'COP','SV',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1007,'COP','TH',24440);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1008,'COP','CO',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1009,'COP','LK',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1010,'COP','CR',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1011,'COP','AR',26476);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1012,'COP','MA',26476);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1013,'COP','MY',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1014,'COP','KZ',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1015,'COP','DZ',26476);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1016,'COP','ID',26476);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1017,'COP','NG',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1018,'COP','GT',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1019,'COP','VN',22403);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1020,'COP','BY',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1021,'COP','EG',26476);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1022,'COP','UY',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1023,'COP','BD',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1024,'COP','PK',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1025,'COP','PH',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1026,'COP','ET',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1027,'COP','TN',26476);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1028,'COP','LB',26476);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1029,'COP','IN',22403);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1030,'COP','PY',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1031,'COP','UZ',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1032,'COP','EC',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1033,'COP','MM',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1034,'COP','GE',54989);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1035,'CZK','US',337);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1036,'CZK','CH',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1037,'CZK','AU',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1038,'CZK','GB',393);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1039,'CZK','DE',393);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1040,'CZK','DK',314);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1041,'CZK','AT',269);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1042,'CZK','NO',269);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1043,'CZK','CA',314);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1044,'CZK','NL',314);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1045,'CZK','SE',314);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1046,'CZK','IE',247);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1047,'CZK','BE',247);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1048,'CZK','FI',247);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1049,'CZK','FR',314);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1050,'CZK','NZ',269);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1051,'CZK','HK',135);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1052,'CZK','CZ',269);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1053,'CZK','SK',247);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1054,'CZK','AE',314);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1055,'CZK','SG',314);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1056,'CZK','IL',314);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1057,'CZK','KW',146);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1058,'CZK','IT',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1059,'CZK','JP',393);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1060,'CZK','ES',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1061,'CZK','VE',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1062,'CZK','HU',247);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1063,'CZK','PT',269);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1064,'CZK','GR',269);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1065,'CZK','KR',135);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1066,'CZK','TW',269);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1067,'CZK','PL',124);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1068,'CZK','ZM',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1069,'CZK','PR',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1070,'CZK','CI',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1071,'CZK','RO',247);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1072,'CZK','BH',146);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1073,'CZK','PA',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1074,'CZK','GH',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1075,'CZK','KH',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1076,'CZK','SN',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1077,'CZK','SA',146);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1078,'CZK','RU',314);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1079,'CZK','UG',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1080,'CZK','BR',124);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1081,'CZK','NI',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1082,'CZK','MG',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1083,'CZK','DO',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1084,'CZK','MX',135);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1085,'CZK','OM',146);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1086,'CZK','CM',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1087,'CZK','ZA',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1088,'CZK','CL',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1089,'CZK','KE',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1090,'CZK','NP',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1091,'CZK','PE',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1092,'CZK','UA',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1093,'CZK','MZ',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1094,'CZK','TZ',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1095,'CZK','AO',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1096,'CZK','JO',146);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1097,'CZK','ZW',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1098,'CZK','TR',247);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1099,'CZK','MU',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1100,'CZK','SV',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1101,'CZK','TH',135);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1102,'CZK','CO',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1103,'CZK','LK',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1104,'CZK','CR',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1105,'CZK','AR',146);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1106,'CZK','MA',146);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1107,'CZK','MY',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1108,'CZK','KZ',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1109,'CZK','DZ',146);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1110,'CZK','ID',146);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1111,'CZK','NG',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1112,'CZK','GT',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1113,'CZK','VN',124);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1114,'CZK','BY',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1115,'CZK','EG',146);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1116,'CZK','UY',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1117,'CZK','BD',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1118,'CZK','PK',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1119,'CZK','PH',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1120,'CZK','ET',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1121,'CZK','TN',146);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1122,'CZK','LB',146);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1123,'CZK','IN',124);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1124,'CZK','PY',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1125,'CZK','UZ',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1126,'CZK','EC',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1127,'CZK','MM',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1128,'CZK','GE',303);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1129,'DKK','US',103);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1130,'DKK','CH',92);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1131,'DKK','AU',92);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1132,'DKK','GB',120);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1133,'DKK','DE',120);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1134,'DKK','DK',96);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1135,'DKK','AT',82);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1136,'DKK','NO',82);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1137,'DKK','CA',96);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1138,'DKK','NL',96);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1139,'DKK','SE',96);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1140,'DKK','IE',75);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1141,'DKK','BE',75);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1142,'DKK','FI',75);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1143,'DKK','FR',96);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1144,'DKK','NZ',82);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1145,'DKK','HK',41);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1146,'DKK','CZ',82);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1147,'DKK','SK',75);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1148,'DKK','AE',96);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1149,'DKK','SG',96);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1150,'DKK','IL',96);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1151,'DKK','KW',45);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1152,'DKK','IT',92);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1153,'DKK','JP',120);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1154,'DKK','ES',92);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1155,'DKK','VE',92);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1156,'DKK','HU',75);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1157,'DKK','PT',82);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1158,'DKK','GR',82);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1159,'DKK','KR',41);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1160,'DKK','TW',82);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1161,'DKK','PL',38);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1162,'DKK','ZM',92);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1163,'DKK','PR',92);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1164,'DKK','CI',92);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1165,'DKK','RO',75);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1166,'DKK','BH',45);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1167,'DKK','PA',92);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1168,'DKK','GH',92);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1169,'DKK','KH',92);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1170,'DKK','SN',92);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1171,'DKK','SA',45);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1172,'DKK','RU',96);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1173,'DKK','UG',92);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1174,'DKK','BR',38);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1175,'DKK','NI',92);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1176,'DKK','MG',92);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1177,'DKK','DO',92);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1178,'DKK','MX',41);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1179,'DKK','OM',45);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1180,'DKK','CM',92);
+INSERT INTO `wp_gla_budget_recommendations` VALUES (1181,'DKK','ZA',92
